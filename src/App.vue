@@ -34,9 +34,27 @@ export default{
         
       })
     },
+    getApiSeries(){
+      axios.get(this.store.apiUrlSeries,{
+        params:{
+          api_key:'926a534a33faeeafba160ec28ae8a506',
+          query: store.inputSearch,
+          language:'it-IT',
+
+        }
+      })
+      .then(result =>{
+        store.seriesList = result.data.results;
+        console.log(store.seriesList);
+        
+        
+      })
+    },
   }, 
   mounted() {
     this.getApi()
+    this.getApiSeries()
+
   }, 
 }
 </script>
@@ -45,7 +63,7 @@ export default{
 
   
 
-  <Header @startSearch="getApi()"/>
+  <Header @startSearch="getApi(),getApiSeries()"/>
   <Main/>
   <Footer/>
 

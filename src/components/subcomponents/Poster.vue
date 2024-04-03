@@ -28,7 +28,17 @@ export default {
     <h5 class="card-title">Titolo originale: {{MovieOriTitle}}</h5>
     <h5 class="card-title">Titolo: {{MovieTitle}}</h5>
     <p class="card-text">{{MovieDesc}}</p>
-    <p class="card-text">Lingua originale: {{MovieLanguage}}</p>
+    <p
+    v-if="this.MovieLanguage == 'it'"
+    class="card-text">Lingua originale: {{MovieLanguage}}
+    <img src="../../assets/img/it.png" alt="">
+    </p>
+    <p
+    v-if="this.MovieLanguage == 'en'"
+    class="card-text">Lingua originale: {{MovieLanguage}}
+    <img src="../../assets/img/en.png" alt="">
+    </p>
+    <p v-else>Lingua originale: {{MovieLanguage}}</p>
     <p class="card-text">Voto: {{MovieRating}}</p>
   </div>
 </div>
@@ -38,5 +48,8 @@ export default {
 
 
 <style lang="scss" scoped>
-
+img{
+  width: 50px;
+  height: 20px;
+}
 </style>

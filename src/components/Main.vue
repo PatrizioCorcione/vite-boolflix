@@ -17,11 +17,15 @@ export default {
 
 <div class="containe">
   <div class="row row-cols-4 ">
-
+    
     <Poster
     v-for="movie in store.movieList"
     :key="movie.id"
     :MovieOriTitle = movie.original_title
+    :MovieTitle = movie.title
+    :MovieDesc = movie.overview
+    :MovieLanguage = movie.original_language
+    :MovieRating = movie.vote_average.toFixed(1)
     />
     
   </div>

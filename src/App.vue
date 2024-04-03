@@ -22,9 +22,9 @@ export default{
       axios.get(this.store.apiUrlMovie,{
         params:{
           api_key:'926a534a33faeeafba160ec28ae8a506',
-          query: 'matrix',
+          query: store.inputSearch,
           language:'it-IT',
-          
+
         }
       })
       .then(result =>{
@@ -45,7 +45,7 @@ export default{
 
   
 
-  <Header/>
+  <Header @startSearch="getApi()"/>
   <Main/>
   <Footer/>
 

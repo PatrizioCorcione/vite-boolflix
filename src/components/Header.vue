@@ -3,7 +3,7 @@ import {store} from '../store';
 export default {
   data(){
     return{
-      
+      store,
     }
   }
 }
@@ -14,7 +14,12 @@ export default {
 <template>
 
   <div  class="text-center">
-    h
+    <input 
+    v-model="store.inputSearch"
+    type="text">
+    <span
+    @click="$emit('startSearch')"
+    class="btn btn-dark"></span>
   </div>
   
 </template>

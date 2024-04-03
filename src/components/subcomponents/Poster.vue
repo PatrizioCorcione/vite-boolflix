@@ -3,12 +3,18 @@
 export default {
   data(){
     return{
-      props:{
-        MovieOriTitle:String,
-      }
+      
 
     }
-  }
+    
+  },
+  props:{
+        MovieOriTitle:String,
+        MovieTitle:String,
+        MovieDesc:String,
+        MovieLanguage:String,
+        MovieRating:String
+      }
 }
 
 
@@ -19,8 +25,11 @@ export default {
 <div class="card">
   <img src="..." class="card-img-top" alt="...">
   <div class="card-body">
-    <h5 class="card-title">{{MovieOriTitle}}</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <h5 class="card-title">Titolo originale: {{MovieOriTitle}}</h5>
+    <h5 class="card-title">Titolo: {{MovieTitle}}</h5>
+    <p class="card-text">{{MovieDesc}}</p>
+    <p class="card-text">Lingua originale: {{MovieLanguage}}</p>
+    <p class="card-text">Voto: {{MovieRating}}</p>
   </div>
 </div>
   

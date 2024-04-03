@@ -37,7 +37,7 @@ export default {
 
 <template>
 
-<div class="card">
+<div class="card position-relative ">
   <img
   v-if="this.ImgPath!==null"
   :src="`https://image.tmdb.org/t/p/w342${ ImgPath }`"
@@ -45,21 +45,21 @@ export default {
   <img
   v-else
   src="../../assets/img/errore-404-pagina-non-trovata.jpg" alt="">
-  <div class="card-body">
+  <div class="card-body position-absolute">
     <h5 class="card-title">Titolo originale: {{OriginalTitle}}</h5>
-    <h5 class="card-title">Titolo: {{Title}}</h5>
-    <p class="card-text">{{Desc}}</p>
+    <h5 class="card-title">{{Title}}</h5>
     <p
     v-if="this.Language == 'it'"
-    class="card-text">Lingua originale: {{Language}}
+    class="card-text text-center ">
     <img src="../../assets/img/it.png" alt="">
     </p>
     <p
     v-else-if="this.Language == 'en'"
-    class="card-text">Lingua originale: {{Language}}
+    class="card-text text-center ">
     <img src="../../assets/img/en.png" alt="">
     </p>
     <p v-else>Lingua originale: {{Language}}</p>
+    <p class="card-text">{{Desc}}</p>
     <p v-html="starRating(Rating)"></p>
   </div>
 </div>
@@ -69,11 +69,29 @@ export default {
 
 
 <style lang="scss" scoped>
-.card-body{
+.card{ 
+  
+  overflow: hidden;
   img{
-  width: 50px;
-  height: 20px;
+    height: 480px;
+  }
+  &:hover .card-body{
+    top: 0;
+   
+  }
+  height: 560px;
+  .card-body{
+    
+    top: 100%;
+    transition: all 2s;
+    color: rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0.566);
+    img{
+      width: 70px;
+      height: 40px;
+    }
+  }
 }
-}
+
 
 </style>

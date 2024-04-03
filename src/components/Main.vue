@@ -22,11 +22,12 @@ export default {
     <Poster
     v-for="movie in store.movieList"
     :key="movie.id"
-    :MovieOriTitle = movie.original_title
-    :MovieTitle = movie.title
-    :MovieDesc = movie.overview
-    :MovieLanguage = movie.original_language
-    :MovieRating = movie.vote_average.toFixed(1)
+    :OriginalTitle = movie.original_title
+    :Title = movie.title
+    :Desc = movie.overview
+    :Language = movie.original_language
+    :Rating = movie.vote_average
+    :ImgPath = movie.poster_path
     />
     
   </div>
@@ -38,11 +39,12 @@ export default {
     <Poster
     v-for="serie in store.seriesList"
     :key="serie.id"
-    :MovieOriTitle = serie.original_name
-    :MovieTitle = serie.name
-    :MovieDesc = serie.overview
-    :MovieLanguage = serie.original_language
-    :MovieRating = serie.vote_average.toFixed(1)
+    :OriginalTitle = serie.original_name
+    :Title = serie.name
+    :Desc = serie.overview
+    :Language = serie.original_language
+    :Rating = serie.vote_average
+    :ImgPath = serie.poster_path
     />
     
   </div>

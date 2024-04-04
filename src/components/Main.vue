@@ -15,25 +15,26 @@ export default {
 
 <template>
 <main>
+  
   <div class="container">
-  <h1>Movie</h1>
-  <div class="row row-cols-4 ">
+    <div class="row row-cols-4 ">
     
     <Poster
     v-for="movie in store.movieList"
-    :key="movie.id"
-    :OriginalTitle = movie.original_title
-    :Title = movie.title
-    :Desc = movie.overview
-    :Language = movie.original_language
-    :Rating = movie.vote_average
-    :ImgPath = movie.poster_path
+      :key="movie.id"
+      :OriginalTitle = movie.original_title
+      :Title = movie.title
+      :Desc = movie.overview
+      :Language = movie.original_language
+      :Rating = movie.vote_average
+      :ImgPath = movie.poster_path
     />
-    
+   
+    </div>
   </div>
-</div>
+  
+
 <div class="container">
-  <h1>Series</h1>
   <div class="row row-cols-4 ">
     
     <Poster
@@ -49,6 +50,25 @@ export default {
     
   </div>
 </div>
+<div class="container">
+    
+    <h1>Popolari</h1>
+    <div class="row row-cols-4 ">
+      
+      <Poster
+      v-for="moviepop in store.popularList"
+      :key="moviepop.id"
+      :OriginalTitle = moviepop.original_title
+      :Title = moviepop.title
+      :Desc = moviepop.overview
+      :Language = moviepop.original_language
+      :Rating = moviepop.vote_average
+      :ImgPath = moviepop.poster_path
+      />
+     
+    </div>
+  
+</div>
 </main>
 
     
@@ -59,5 +79,10 @@ export default {
 <style lang="scss" scoped>
 main{
   background-color: #141414;
+  padding-top: 120px;
+}
+h1{
+  padding-top:80px ;
+  color: rgb(211, 5, 5);
 }
 </style>

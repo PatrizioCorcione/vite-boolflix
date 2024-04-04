@@ -50,10 +50,27 @@ export default{
         
       })
     },
+    getApiPopular(){
+      axios.get(this.store.apiUrlPopular,{
+        params:{
+          api_key:'926a534a33faeeafba160ec28ae8a506',
+          popular:'',
+          language:'it-IT',
+
+        }
+      })
+      .then(result =>{
+        store.popularList = result.data.results;
+        console.log(store.popularList);
+        
+        
+      })
+    },
   }, 
   mounted() {
     this.getApi()
     this.getApiSeries()
+    this.getApiPopular()
 
   }, 
 }

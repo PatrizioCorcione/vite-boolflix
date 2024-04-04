@@ -20,12 +20,13 @@ export default {
     starRating(rate){
       const rateInt = rate
       const starArray = []
-      const hasHalfStar = rate % 1 !== 0;
+      let hasHalfStar = rate % 1 !== 0;
       for (let i = 0; i < 5; i++) {
         if (i < rateInt/2) {
           starArray.push('<i class="fa-solid fa-star"></i>')
         }else if (hasHalfStar) {
           starArray.push('<i class="fa-regular fa-star-half-stroke"></i>')
+          hasHalfStar = false
         }
         else{
           starArray.push('<i class="fa-regular fa-star"></i>')
@@ -92,20 +93,24 @@ export default {
 
 <style lang="scss" scoped>
 .card{ 
-  padding: 0px 0px 0px 30px;
+  transition: all 1.2s;
   margin: 10px 0px;
   background-color: #141414;
   overflow: hidden;
+  &:hover{
+    scale: 1.05;
+    z-index: 9000;
+   
+  }
  
   &:hover .card-body{
     top: 0;
-   
   }
   
   .card-body{
     
     top: 100%;
-    transition: all 2s;
+    transition: all 1.5s;
     color: rgb(255, 255, 255);
     background-color: rgba(0, 0, 0, 0.566);
     img{
@@ -113,8 +118,13 @@ export default {
       height: 20%;
     }
     .scrolling{
-      height: 200px;
-      overflow: auto;
+      height: 100%;
+      padding: 30px 0px;
+      
+      p{
+        overflow: auto;
+        height: 197px;
+      }
     }
   }
 }

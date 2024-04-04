@@ -14,8 +14,8 @@ export default {
 </script>
 
 <template>
-
-<div class="containe">
+<main>
+  <div class="container">
   <h1>Movie</h1>
   <div class="row row-cols-4 ">
     
@@ -32,7 +32,7 @@ export default {
     
   </div>
 </div>
-<div class="containe">
+<div class="container">
   <h1>Series</h1>
   <div class="row row-cols-4 ">
     
@@ -49,11 +49,15 @@ export default {
     
   </div>
 </div>
+</main>
+
     
 </template>
 
 
 
 <style lang="scss" scoped>
-
+main{
+  background-color: #141414;
+}
 </style>

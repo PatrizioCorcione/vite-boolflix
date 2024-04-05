@@ -24,7 +24,7 @@ export default {
     <div class="row row-cols-4 ">
     
     <Poster
-    v-for="movie in store.movieList"
+    v-for="movie in store.movie"
       :key="movie.id"
       :OriginalTitle = movie.original_title
       :Title = movie.title
@@ -42,7 +42,7 @@ export default {
   <div class="row row-cols-4 ">
     
     <Poster
-    v-for="serie in store.seriesList"
+    v-for="serie in store.tv"
     :key="serie.id"
     :OriginalTitle = serie.original_name
     :Title = serie.name

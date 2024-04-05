@@ -108,6 +108,8 @@ export default {
   }
   
   .card-body{
+    height: 100%;
+    overflow: auto;
     width: 92%;
     top: 100%;
     transition: all 1.5s;
@@ -116,13 +118,6 @@ export default {
     img{
       width: 20%;
       height: 20%;
-    }
-    .scrolling{
-      height: 100%;
-      p{
-        overflow: auto;
-        height: 230px;
-      }
     }
   }
 }

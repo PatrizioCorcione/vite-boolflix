@@ -56,7 +56,6 @@ export default {
 </div>
 <div class="container">
     
-    <h1>Popolari</h1>
     <div class="row row-cols-4 ">
       
       <Poster

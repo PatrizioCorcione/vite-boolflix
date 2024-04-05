@@ -9,7 +9,10 @@ export default {
   },
   components:{
     Poster
-  }
+  },
+  methods: {
+   
+  },
 }
 </script>
 
@@ -17,6 +20,7 @@ export default {
 <main>
   
   <div class="container">
+    
     <div class="row row-cols-4 ">
     
     <Poster
@@ -29,12 +33,12 @@ export default {
       :Rating = movie.vote_average
       :ImgPath = movie.poster_path
     />
-   
     </div>
   </div>
   
 
 <div class="container">
+
   <div class="row row-cols-4 ">
     
     <Poster
@@ -82,7 +86,8 @@ main{
   padding-top: 120px;
 }
 h1{
-  padding-top:80px ;
+  padding-top:20px ;
+  text-align: center;
   color: rgb(211, 5, 5);
 }
 </style>

@@ -17,7 +17,7 @@ export default {
     <img src="../assets/img/boolflix-logo.png" alt="">
     <div>
       <input 
-      @keyup.enter="$emit('startSearch')"
+      @keyup.enter="$emit('startSearch'),store.h1true=true"
       v-model="store.inputSearch"
       type="text" placeholder="Serie tv/Film">
     </div>

@@ -14,7 +14,7 @@ export default {
     Desc:String,
     Language:String,
     Rating:Number,
-    ImgPath:String
+    ImgPath:String,
   },
   methods: {
     starRating(rate){
@@ -108,7 +108,7 @@ export default {
   }
   
   .card-body{
-    
+    width: 92%;
     top: 100%;
     transition: all 1.5s;
     color: rgb(255, 255, 255);
@@ -119,11 +119,9 @@ export default {
     }
     .scrolling{
       height: 100%;
-      padding: 30px 0px;
-      
       p{
         overflow: auto;
-        height: 197px;
+        height: 230px;
       }
     }
   }

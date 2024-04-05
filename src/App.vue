@@ -62,8 +62,6 @@ export default{
       .then(result =>{
         store.popularList = result.data.results;
         console.log(store.popularList);
-        
-        
       })
     },
   }, 
@@ -71,21 +69,14 @@ export default{
     this.getApi()
     this.getApiSeries()
     this.getApiPopular()
-
   }, 
 }
 </script>
 
 <template>
-
-  
-
   <Header @startSearch="getApi(),getApiSeries()"/>
   <Main/>
   <Footer/>
-
-  
-  
 </template>
 
 <style lang="scss">

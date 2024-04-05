@@ -11,6 +11,19 @@ export default {
     Poster
   },
   methods: {
+    takeGener(array){
+      let x = 0
+      const genGeneration = []
+      for (let i = 0; i < store.gen.length; i++) {
+        if (array[x] == store.gen[i].id) {
+          genGeneration.push(store.gen[i].name)
+          x++
+        }
+        
+      }
+      return genGeneration.join(' ')
+
+    }
    
   },
 }
@@ -20,14 +33,14 @@ export default {
 <main>
   
   <div class="container">
-    
+    <h1>Film</h1>
     <div class="row row-cols-4 ">
     
     <Poster
     v-for="movie in store.movie"
       :key="movie.id"
-      :OriginalTitle = movie.original_title
       :Title = movie.title
+      :gener="takeGener(movie.genre_ids)"
       :Desc = movie.overview
       :Language = movie.original_language
       :Rating = movie.vote_average
@@ -38,16 +51,15 @@ export default {
   
 
 <div class="container">
-
+  <h1>Serie tv</h1>
   <div class="row row-cols-4 ">
     
     <Poster
     v-for="serie in store.tv"
     :key="serie.id"
-    :OriginalTitle = serie.original_name
     :Title = serie.name
     :Desc = serie.overview
-    :Language = serie.original_language
+    :Language = takeGener(serie.genre_ids)
     :Rating = serie.vote_average
     :ImgPath = serie.poster_path
     />

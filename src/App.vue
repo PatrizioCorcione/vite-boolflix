@@ -46,19 +46,81 @@ export default{
         ;
       })
     },
+    getApiAllGen(type){
+      axios.get(this.store.apiUrlGen+type+'/list',{
+        params:{
+          api_key:'926a534a33faeeafba160ec28ae8a506',
+          language:'it-IT',
+        }
+      })
+      .then(result =>{
+        result.data.genres.forEach(element => {
+          if (!store.gen.includes(element)) {
+            store.gen.push(element)
+          }
+        });
+      })
+    },
+    getApiMovieGen(type){
+      axios.get(this.store.apiUrlGen+type+'/list',{
+        params:{
+          api_key:'926a534a33faeeafba160ec28ae8a506',
+          language:'it-IT',
+        }
+      })
+      .then(result =>{
+        store.genMovie = result.data.genres;
+      })
+      console.log(store.genMovie);
+    },
+    getApiTvGen(type){
+      axios.get(this.store.apiUrlGen+type+'/list',{
+        params:{
+          api_key:'926a534a33faeeafba160ec28ae8a506',
+          language:'it-IT',
+        }
+      })
+      .then(result =>{
+        store.genTv = result.data.genres;
+      })
+      console.log(store.genTv);
+    },
+    getApiGen(type){
+      axios.get(this.store.apiUrlPop+'discover/' + type,{
+        params:{
+          api_key:'926a534a33faeeafba160ec28ae8a506',
+          query: store.inputSearch,
+          with_genres:store.genSelected,
+          language:'it-IT',
+
+        }
+      })
+      .then(result =>{
+        store[type] = result.data.results;
+        
+        console.log(store[type]);
+      })
+
+    },
   }, 
   mounted() {
-    this.getApi('movie')
-    this.getApi('tv')
+    
     this.getApiPopular('movie')
     this.getApiPopular('tv')
+    this.getApiAllGen('movie')
+    this.getApiAllGen('tv')
+    this.getApiTvGen('tv')
+    this.getApiMovieGen('movie')
     
   }, 
 }
 </script>
 
 <template>
-  <Header @startSearch="getApi('movie'),getApi('tv')"/>
+  <Header
+   @startSearch="getApi('movie'),getApi('tv')"
+   @searchGen="getApiGen('movie'),getApiGen('tv')"
+   />
   <Main/>
   <Footer/>
 </template>

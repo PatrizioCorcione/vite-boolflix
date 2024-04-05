@@ -15,6 +15,7 @@ export default {
     Language:String,
     Rating:Number,
     ImgPath:String,
+    gener:String
   },
   methods: {
     starRating(rate){
@@ -51,8 +52,8 @@ export default {
   v-else
   src="../../assets/img/errore-404-pagina-non-trovata.jpg" alt="">
   <div class="card-body position-absolute">
-    <h5 class="card-title">Titolo originale: {{OriginalTitle}}</h5>
     <h5 class="card-title">{{Title}}</h5>
+    <p>{{ gener }}</p>
     <p
     v-if="this.Language == 'it'"
     class="card-text text-center m-0 ">
@@ -78,7 +79,7 @@ export default {
     class="card-text text-center m-0">
     <img src="../../assets/img/pngegg.png" alt="">
     </p>
-    <p v-else>Lingua originale: {{Language}}</p>
+    <p v-else>{{Language}}</p>
     <p class="text-center m-0 " v-html="starRating(Rating)"></p>
     <div class="scrolling">
       <p class="card-text">{{Desc}}</p>

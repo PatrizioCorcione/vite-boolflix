@@ -41,6 +41,7 @@ export default {
       </div>
    
     <div class="select">
+      
       <select class="form-select" aria-label="Default selectexample">
          <option
           v-for="(gen, index) in store.gen" :key="index"
@@ -86,6 +87,10 @@ header{
         list-style: none;
         display: flex;
         align-items: center;
+        &:hover{
+          text-decoration: underline;
+          cursor: pointer;
+        }
       }  
     }
     img{
@@ -107,9 +112,7 @@ header{
         background-color: black;
         border-radius: 8px;
         padding: 0px 10px;
-        &active{
-          border: #dc1a28;
-        }
+        margin-right: 20px;
       }
     }
   }

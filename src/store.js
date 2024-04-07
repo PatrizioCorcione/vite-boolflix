@@ -8,7 +8,9 @@ export const store = reactive({
   genTv:[],
   movie:[],
   tv:[],
+  cast:[],
   inputSearch:'',
   genSelected:'',
   counterLoader:0,
+  movieId:0,
 })

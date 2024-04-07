@@ -42,7 +42,11 @@ export default {
     <div class="row row-cols-4 ">
     
     <Poster
+    
     v-for="movie in store.movie"
+      @mouseenter="store.movieId=movie.id,
+      $emit('searchCast')"
+      
       :key="movie.id"
       :Title = movie.title
       :gener="takeGener(movie.genre_ids)"

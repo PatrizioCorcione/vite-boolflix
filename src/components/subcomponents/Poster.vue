@@ -1,9 +1,9 @@
 <script>
-// import {store} from '../store';
+import {store} from '../../store';
 export default {
   data(){
     return{
-      
+      store,
 
     }
     
@@ -15,7 +15,7 @@ export default {
     Language:String,
     Rating:Number,
     ImgPath:String,
-    gener:String
+    gener:String,
   },
   methods: {
     starRating(rate){
@@ -82,6 +82,10 @@ export default {
     <p v-else>{{Language}}</p>
     <p class="text-center m-0 " v-html="starRating(Rating)"></p>
     <div class="scrolling">
+      <p
+      v-for="person in store.cast"
+      :key="person.id"      
+      >{{ person.name }}</p>
       <p class="card-text">{{Desc}}</p>
     </div>
     
@@ -101,6 +105,7 @@ export default {
   &:hover{
     scale: 1.05;
     z-index: 9000;
+
    
   }
  

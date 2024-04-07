@@ -83,12 +83,31 @@ export default{
       })
 
     },
+    getApiCast(type){
+      axios.get(this.store.apiUrlPop+ type+'/'+ store.movieId + '/credits',{
+        params:{
+          api_key:'926a534a33faeeafba160ec28ae8a506',
+          movie_id:store.movieId,
+         
+
+        }
+      })
+      .then(result =>{
+        store.cast = result.data.results;
+        store.counterLoader++
+        
+        console.log(store.cast);
+      })
+      .catch(error =>{
+        
+      })
+
+    },
   }, 
   mounted() {
     
     this.getApiPopular('movie')
     this.getApiAllGen('movie')
-    
   }, 
 }
 </script>
@@ -98,8 +117,9 @@ export default{
    @startPopular="getApiPopular('movie')"
    @startPopularTv="getApiPopular('tv')"
    @startSearch="getApi('movie'),getApi('tv')"
-   @searchGenMovie=" this.getApiAllGen('movie')"
-   @searchGenTv=" this.getApiAllGen('tv')"
+   @searchGenMovie=" getApiAllGen('movie')"
+   @searchGenTv=" getApiAllGen('tv')"
+   @searchCast=" getApiCast('movie')"
    @searchGen="getApiGen('movie'),getApiGen('tv')"
    />
   <Main/>

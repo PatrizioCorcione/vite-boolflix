@@ -32,14 +32,13 @@ export default {
 <template>
 <main>
   <span
- v-if="store.counterLoader==1"
+ v-if="store.counterLoader==0"
   class="loader"></span>
   <span
   class=" text-white "
   v-if="store.movie==[]"
   >Nessun risultato trovato </span>
   <div class="container">
-    <h1>Film</h1>
     <div class="row row-cols-4 ">
     
     <Poster
@@ -57,7 +56,6 @@ export default {
   
 
 <div class="container">
-  <h1>Serie tv</h1>
   <div class="row row-cols-4 ">
     
     <Poster

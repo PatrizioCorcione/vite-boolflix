@@ -20,6 +20,7 @@ export default{
   methods: {
 
     getApi(type){
+      
       axios.get(this.store.apiUrl + type,{
         params:{
           api_key:'926a534a33faeeafba160ec28ae8a506',
@@ -49,6 +50,7 @@ export default{
       })
     },
     getApiAllGen(type){
+      store.gen=[]
       axios.get(this.store.apiUrlGen+type+'/list',{
         params:{
           api_key:'926a534a33faeeafba160ec28ae8a506',
@@ -62,31 +64,6 @@ export default{
           }
         });
       })
-    },
-    getApiMovieGen(type){
-      axios.get(this.store.apiUrlGen+type+'/list',{
-        params:{
-          api_key:'926a534a33faeeafba160ec28ae8a506',
-          language:'it-IT',
-        }
-      })
-      .then(result =>{
-        store.genMovie = result.data.genres;
-        
-      })
-      console.log(store.genMovie);
-    },
-    getApiTvGen(type){
-      axios.get(this.store.apiUrlGen+type+'/list',{
-        params:{
-          api_key:'926a534a33faeeafba160ec28ae8a506',
-          language:'it-IT',
-        }
-      })
-      .then(result =>{
-        store.genTv = result.data.genres;
-      })
-      console.log(store.genTv);
     },
     getApiGen(type){
       axios.get(this.store.apiUrlPop+'discover/' + type,{
@@ -110,11 +87,7 @@ export default{
   mounted() {
     
     this.getApiPopular('movie')
-    this.getApiPopular('tv')
     this.getApiAllGen('movie')
-    this.getApiAllGen('tv')
-    this.getApiTvGen('tv')
-    this.getApiMovieGen('movie')
     
   }, 
 }
@@ -122,8 +95,11 @@ export default{
 
 <template>
   <Header
-  @startPopular="getApiPopular('movie'),getApiPopular('tv')"
+   @startPopular="getApiPopular('movie')"
+   @startPopularTv="getApiPopular('tv')"
    @startSearch="getApi('movie'),getApi('tv')"
+   @searchGenMovie=" this.getApiAllGen('movie')"
+   @searchGenTv=" this.getApiAllGen('tv')"
    @searchGen="getApiGen('movie'),getApiGen('tv')"
    />
   <Main/>

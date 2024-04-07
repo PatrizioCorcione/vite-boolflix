@@ -122,6 +122,7 @@ export default{
 
 <template>
   <Header
+  @startPopular="getApiPopular('movie'),getApiPopular('tv')"
    @startSearch="getApi('movie'),getApi('tv')"
    @searchGen="getApiGen('movie'),getApiGen('tv')"
    />

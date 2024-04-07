@@ -11,6 +11,13 @@ export default {
     resetCounteLoad(){
       store.counterLoader=0
     },
+    checkSearch(){
+      if (store.inputSearch === '') {
+        this.$emit('startPopular')
+      } else {
+        this.$emit('startSearch')
+      }
+    }
   },
 }
 
@@ -32,7 +39,7 @@ export default {
           selected>{{ gen.name }}</option>
       </select>
       <input 
-      @keyup.enter="this.resetCounteLoad(),$emit('startSearch')"
+      @keyup.enter="checkSearch(),resetCounteLoad()"
       v-model="store.inputSearch"
       type="text" placeholder="Serie tv/Film">
     </div>

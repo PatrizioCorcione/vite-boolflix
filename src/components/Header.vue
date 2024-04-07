@@ -6,7 +6,12 @@ export default {
       store,
       
     }
-  }
+  },
+  methods: {
+    resetCounteLoad(){
+      store.counterLoader=0
+    },
+  },
 }
 
 
@@ -21,12 +26,13 @@ export default {
          <option
           v-for="(gen, index) in store.genMovie" :key="index"
           @click="
+          this.resetCounteLoad(),
           store.genSelected=store.gen[index].id,
           $emit('searchGen')"
           selected>{{ gen.name }}</option>
       </select>
       <input 
-      @keyup.enter="$emit('startSearch')"
+      @keyup.enter="this.resetCounteLoad(),$emit('startSearch')"
       v-model="store.inputSearch"
       type="text" placeholder="Serie tv/Film">
     </div>

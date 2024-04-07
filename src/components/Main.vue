@@ -31,6 +31,9 @@ export default {
 
 <template>
 <main>
+  <span
+ v-if="store.counterLoader==1"
+  class="loader"></span>
   
   <div class="container">
     <h1>Film</h1>
@@ -101,4 +104,59 @@ h1{
   text-align: center;
   color: rgb(211, 5, 5);
 }
+.loader {
+  left: 47%;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  border: 3px solid;
+  border-color: #ff0000 #ff0000 transparent transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+.loader::after,
+.loader::before {
+  content: '';  
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  border: 3px solid;
+  border-color: transparent transparent #ffffff #fffdfd;
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  animation: rotationBack 0.5s linear infinite;
+  transform-origin: center center;
+}
+.loader::before {
+  width: 70px;
+  height: 70px;
+  border-color: #ff0000 #ff0000 transparent transparent;
+  animation: rotation 1.5s linear infinite;
+}
+    
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} 
+@keyframes rotationBack {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+    
 </style>

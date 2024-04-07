@@ -18,6 +18,7 @@ export default{
     
   },
   methods: {
+
     getApi(type){
       axios.get(this.store.apiUrl + type,{
         params:{
@@ -29,8 +30,8 @@ export default{
       })
       .then(result =>{
         store[type] = result.data.results;
-        
-        
+    
+        store.counterLoader++
       })
     },
     getApiPopular(type){
@@ -43,7 +44,8 @@ export default{
       })
       .then(result =>{
         store[type] = result.data.results;
-        ;
+        store.counterLoader++;
+        
       })
     },
     getApiAllGen(type){
@@ -70,6 +72,7 @@ export default{
       })
       .then(result =>{
         store.genMovie = result.data.genres;
+        
       })
       console.log(store.genMovie);
     },
@@ -97,6 +100,7 @@ export default{
       })
       .then(result =>{
         store[type] = result.data.results;
+        store.counterLoader++
         
         console.log(store[type]);
       })

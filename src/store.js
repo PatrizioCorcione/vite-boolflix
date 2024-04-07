@@ -10,4 +10,5 @@ export const store = reactive({
   tv:[],
   inputSearch:'',
   genSelected:'',
+  counterLoader:0,
 })
